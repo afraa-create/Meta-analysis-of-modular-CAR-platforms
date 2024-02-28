@@ -1,0 +1,15 @@
+﻿study_id,car_design,soluble_module,target_antigen_1,target_antigen_2,frequency_car,car_administration_1,car_administration_2,car_dose_1,car_dose_2,soluble_module_dose_median_ug_g,frequency_soluble_module_dose_s,times_soluble_module_dose_s,cell_line,unit_of_analysis,end_point_days,no_ex,mean_ex,sd_ex,no_nc,mean_nc,sd_nc,positive_control,no_pc,effect_pc,error_pc
+"Landgraf et al., 2020",Convertible CAR,MicAbody™,CD20,NA,Single,2,NA,"5,000,000.00",NA,4,Multiple,5,Raji,p/s,14,5,36926470914,4545641870,15,85520018607,2584033139,5M Rit-scFv,5,20531029262,7791875648
+"Cho et al., 2018 (1)",SUPRA CAR,scFV—Leucine zippe,Her2,NA,Single,14,NA,"35,000,000.00",NA,5,Multiple,8,SK-BR-3,p/s,41,4,"25,600,000,000.00","12,800,000,000.00",8,72450000000,6495875615,a-Her2 CAR,4,"11,900,000,000.00","11,680,000,000.00"
+"Cho et al., 2018 (2)",SUPRA CAR,scFV—Leucine zippe,Her2,NA,Single,4,NA,6250000,NA,8,Multiple,8,Jurkat T,p/s,21,4,"162,000,000,000.00",0,8,9.08E+11,8017837257,a-Her2 CAR,4,"160,000,000,000.00",NA
+"Peng et al., 2022 (2)",sCAR,Fab,ROR1,NA,Multipe,6,16,"5,000,000.00","5,000,000.00",0.233333333,Multiple,11,JeKo-1,p/s,17,10,29608295.02,22833898.89,10,2541269291,2185096330,R12 CAR T,5,2682695.8,1044897.93
+"Peng et al., 2022 (1)",sCAR,Fab,ROR1,NA,Single,3,NA,"10,000,000.00",NA,0.233333333,Multiple,6,HT-29 ,p/s,18,10,9388015899,7920813316,10,19463788793,10399820570,R12 CAR T,5,951338404.3,778301087.8
+"Kuo et al., 2021",Fabrack-CAR,memAb,EGFR/HER3,CDH6,Single,5,NA,"10,000,000.00",NA,1.25,Multiple,7,OVCAR3,p/s,29,12,31671351801,16819215308,18,73145610111,6527932035,,0,0,0
+"Kudo et al., 2014",CD16 CAR,mAb,CD20,NA,Single,6,NA,"10,000,000.00",NA,7.5,Multiple,4,Daudi cells,p/s,55,4,10960499597,2434118211,13,68361926253,29315950487,,0,0,0
+"Ma et al., 2015",Anti-FITC CAR,mAb—FITC,CD19,NA,Single,7,NA,"40,000,000.00",NA,0.185,Multiple,6,Nalm-6,p/s/cm2/sr,19,6,1000,0,6,398107170.6,0,CAR 19,6,1000,0
+"Rodgers et al., 2015",sCAR,PNE—Fab,CD19,NA,Single,6,NA,"40,000,000.00",NA,1.001666667,Multiple,10,Nalm-6,p/s/cm2/sr,10,10,3475470719,1156408313,5,7463546210,534999528.4,CD19 CAR T,5,1524396034,416729881.1
+"Raj et al., 2018",sCAR,Fab—PNE,Her2,NA,Single,17,NA,NA,NA,0.5,Multiple,14,NA,p/s/cm2/sr,31,4,453510899.3,200473532.1,8,6164082547,1614404775,HER2 CAR-T,4,533576295.6,247456959.3
+"Minutolo et al., 2020",Spy-Catcher CAR,Ligand—FITC ,HER2,NA,Single,7,NA,"10,000,000.00",NA,NA,Multiple,NA,SKOV3-CBG+GFP,p/s/cm2/sr,45,4,330996461.5,66270764.4,8,882526574.3,19635610.18,,0,0,0
+"Pennell et al., 2022",sCAR,PNE—scFv,CD19,NA,Single,7,NA,"3,000,000.00",NA,0.5,Multiple,14,TBL12.huCD19s,p/s/cm2/sr,21,5,349.0254879,0,15,8878581.162,10585845.96,,0,0,0
+"Sun et al., 2022",TRUE CAR,F-AgNPs,EGFR vIII ,NA,Multipe,9,14,"10,000,000.00","10,000,000.00",NA,Multiple,2,MGC803,p/s/cm2/sr,30,7,"750,237,416.90",276384277.5,21,2256410257,1114851538,,0,0,0
+"Ruffo et al., 2023",SNAP CAR,mAb—SNAP tag,HER2,NA,Single,4,NA,"20,000,000.00",NA,7.5,Multiple,NA,NALM6 +HER2 ,"relative light units, RLU",23,5,482900,61751.37245,10,1.02E+11,3.20E+11,anti-HER2 CAR T cells,5,1447560,1753147.735

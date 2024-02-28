@@ -1,0 +1,27 @@
+study_id,car_design,cell_line,experimental_group_1,no_ex_1,effect_ex_1,negative_control_group_1,no_nc_1,effect_nc_1,negative_control_group_2,no_nc_2,effect_nc_2,negative_control_group_3,no_nc_3,effect_nc_3,positive_control_1,no_pc_1,effect_pc_1
+"Ambrose et al., 2021",CAR-CD19,SKOV3 ,HER2-briging CAR CD19,10,50,PBS,10,43.00595238,UTD,10,34.22619048,NA,NA,NA,NA,NA,NA
+"Bejestani et al., 2017 (1)",UniCAR,low burden,UniCAR+TM,10,13.02770781,Tumor,10,9.58,UniCAR,10,11.52323838,NA,NA,NA,NA,NA,NA
+"Bejestani et al., 2017 (2)",UniCAR,high burden,UniCAR+TM,8,16.72209026,Tumor,12,10.88,UniCAR,10,11.59144893,NA,NA,NA,NA,NA,NA
+"Benmebarek et al., 2021 (1)",SAR,MV4-11,SAR T cells + aE3-aCD33,7,79.0744921,aE3-aCD33 only,6,47.87199022,SAR T cells only,5,44.94356659,PBS,6,46.20642087,NA,NA,NA
+"Benmebarek et al., 2021 (2)",SAR,THP-2-LUC,SAR T cells + aE3-aCD33,5,74.66666667,aE3-aCD33 only,5,54.2745098,SAR T cells only,5,43.92156863,PBS,5,43.92156863,NA,NA,NA
+"Cartellieri et al., 2016",UniCAR,NA,28/z + TM,5,12.34693878,w/o + TM,3,8.418367347,vc + TM,3,7.908163265,28/z w/o TM,4,8.163265306,NA,NA,NA
+"Cho et al., 2018",SUPRA CAR,Jurkat ,zipCAR+zipFv,4,50,Tumor,4,25.09,zipCAR only,4,26.485,NA,NA,NA,HER2-CAR,4,50
+"Kudo et al., 2014",CD16 CAR,Daudi ,CD16V-BB-z+rituximab,4,120,control,4,51.5,rituximab,5,65.30973451,cd16v-bb-z,4,70.08849558,NA,NA,NA
+"Kuo et al., 2021 (1)",Fabrack-CAR,OVCAR3,Fabrack+EGFR/HER3 Ab,6,85.05154639,EFFR/HER3 memAb,6,62.11,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kuo et al., 2021 (2)",Fabrack-CAR,NA,Fabrack+CDH6 Ab,6,85.05154639,CDH6 memAb,6,69.59,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Loff et al., 2020 (1)",UniCAR,MOLM-13,UniCAR-T + TM123,10,31.00371747,UniCAR-T,10,24.23791822,saline,10,20.44609665,NA,NA,NA,NA,NA,NA
+"Loff et al., 2020 (2)",UniCAR,NA,UniCAR-T + TM123,6,74,UniCAR-T,6,52,saline,4,53,NA,NA,NA,NA,NA,NA
+"Meyer et al., 2021",UniCAR,NA,UniCAR T + TM123,10,31,UniCAR-T,10,24,AML-Control,10,21,NA,NA,NA,NA,NA,NA
+"Minutolo et al., 2020",Spy-Catcher CAR,NA,SCBBZ+12.5 ug,4,87.80096308,SCdeltaZ+25 ug,4,44.14125201,Vehicle,4,28.98876404,NA,NA,NA,NA,NA,NA
+"Peng et al., 2022 (1)",sCAR,JeKo-1,sCAR T + R12N Fab,5,54.80916031,PBS,5,33.23155216,sCAR T + PBS,5,36.8956743,NA,NA,NA,R12 CAR T,5,82.90076336
+"Peng et al., 2022 (2)",sCAR,HT-29,sCAR T + R12N Fab,5,52.78350515,PBS,4,46.18556701,sCAR T + PBS,5,49.27835052,NA,NA,NA,R12 CAR T,5,70.51546392
+"Peng et al., 2022 (3)",sCAR,NA,sCAR T + 324N Fab,5,62.68041237,NA,NA,NA,NA,NA,NA,NA,NA,NA,324 CAR T,5,77.11340206
+"Pennell et al., 2022",sCAR,TBL12.huCD19,sCAR T +  PNE-FMC63 Fab),5,25,t-cell only,5,4.54,sCAR +vehicle,5,21.04247104,NA,NA,NA,NA,NA,NA
+"Rennert et al., 2021 (1)",CAR-CD19,U937 ,Bi,5,27.14285714,PBS,5,20.30612245,UTD,5,23.06122449,NA,NA,NA,NA,NA,NA
+"Rennert et al., 2021 (2)",CAR-CD19,PL21,Bi,5,49.96197719,PBS,5,34.22053232,UTD,5,37.87072243,NA,NA,NA,CAR-CLEC12A,5,50
+"Ruffo et al., 2023",SNAP CAR,NALM-6-HER2+,SNAP-CAR T cells + anti-HER2 adaptor,5,61.93029491,anti-HER2 adaptor only,5,27.82841823,SNAP-CAR T cells only,5,32.97587131,NA,NA,NA,anti-HER2 CAR T cells,5,61.93029491
+"Stock et al., 2022",Fc-targeting CAR ,HCC1569 ,P329G-CAR +HER2 binder 5 ug,4,93.10344828,PBS,5,56.89655172,CAR only,4,55.17241379,binder only,4,58.33333333,HER2-CAR,4,93.10344828
+"Su et al., 2022",CAR-CD19,NA,CAR19+engager(all concenrations are the same effect),8,43.23529412,untreated,8,28.08823529,CAR only,8,36.76470588,NA,NA,NA,NA,NA,NA
+"Sun et al., 2022 (1)",TRUE CAR,MKN45,F-AgNPs + EvIII CAR-T,6,65.5859375,PBS,6,36.640625,F-AgNPs only,6,46.6015625,EvIII CAR-T only,6,48.4765625,NA,NA,NA
+"Sun et al., 2022 (2)",TRUE CAR,MGC803,F-AgNPs + EvIII CAR-T,6,50.63492063,PBS,6,31.66,F-AgNPs only,6,35.07936508,EvIII CAR-T only,6,43.0952381,NA,NA,NA
+"Tamada et al., 2012",Anti-FITC CAR,SW480,Anti-FITC CAR T cells + Fitc-Ctx,3,40.66148523,Ctx alone (no T cells),3,22.13177279,Anti-FITC CAR T cells + FITC IgG,3,28.45356366,Anti-FITC CAR T cells + Ctx,3,25.21992713,NA,NA,NA

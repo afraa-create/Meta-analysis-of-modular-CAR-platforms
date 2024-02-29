@@ -30,8 +30,7 @@ calc_percentage_1 <- function(column) {
 
 # Load data---------------------------------------------------------------------
 
-study_characteristics <-
-  read_csv("data/study_characteristics.csv", na = "NA")
+study_characteristics <- read_csv("data/study_characteristics.csv", na = "NA")
 body_weight <- read_csv("data/Body_weight.csv", na = "NA")
 cytokine <- read_csv("data/Cytokine.csv", na = "NA")
 tumor_burden <- read_csv("data/Tumor_Burden.csv", na = "NA")
@@ -84,7 +83,6 @@ study_characteristics <-
       as.factor(reporting_bias_selective_outcome_reporting),
     other_other_sources_of_bias = as.factor(other_other_sources_of_bias)
   )
-
 study_characteristics <-
   study_characteristics %>%
   mutate(
@@ -97,7 +95,6 @@ study_characteristics <-
     mice_sex = replace_na(as.character(mice_sex), "Not Reported"),
     mice_sex = as_factor(mice_sex)
   )
-
 df_1 <- study_characteristics %>%
   group_by(mice_sex) %>%
   summarise(counts = n())
@@ -113,7 +110,6 @@ p_1 <- ggplot(df_1, aes(x = "", y = prop, fill = mice_sex)) +
   coord_polar("y", start = 0) +
   ggpubr::fill_palette("jco") +
   theme_void() + labs(fill = "Mice Gender") # Pie chart: mice sex
-
 df_2 <- study_characteristics %>%
   group_by(tumor_type) %>%
   summarise(counts = n())
@@ -121,7 +117,6 @@ df_2 <- df_2 %>%
   arrange(desc(tumor_type)) %>%
   mutate(prop = round(counts * 100 / sum(counts), 1),
          lab.ypos = cumsum(prop) - 0.5 * prop)
-
 p_2 <- ggplot(df_2, aes(x = "", y = prop, fill = tumor_type)) +
   geom_bar(width = 1,
            stat = "identity",
@@ -130,7 +125,6 @@ p_2 <- ggplot(df_2, aes(x = "", y = prop, fill = tumor_type)) +
   coord_polar("y", start = 0) +
   ggpubr::fill_palette("jco") +
   theme_void() + labs(fill = "Tumor Type") # Pie chart: Tumor type 
-
 ggsave(
   filename = "output/mice_gender.jpg",
   plot = p_1,
@@ -144,7 +138,9 @@ ggsave(
   width = 8,
   height = 6,
   dpi = 300
-)# save plot high resolution
+) # save plot high resolution
+
+# Outcome measures
 
 study_characteristics$Outcome1_basic_car_activity <-
   study_characteristics$basic_car_activity
@@ -170,7 +166,6 @@ study_characteristics$Outcome11_metastases <-
   study_characteristics$metastases
 study_characteristics$Outcome12_pharmacokinetics <-
   study_characteristics$pharmacokinetics
-
 df_3 <-
   study_characteristics[, c(
     "Outcome1_basic_car_activity",
@@ -203,7 +198,6 @@ df_3 <-
     Outcome11_metastases = as.factor(Outcome11_metastases),
     Outcome12_pharmacokinetics = as.factor(Outcome12_pharmacokinetics)
   )
-
 percentage_df_3 <- data.frame(lapply(df_3, calc_percentage))
 df_4 <-
   percentage_df_3 %>% select(where(is.double))
@@ -233,7 +227,6 @@ df_4 <- df_4 %>%
   )
 df_4 <- df_4 %>%
   rename (Not_applicable = NOt_Applicable)
-
 df_long <-
   pivot_longer(
     df_4,
@@ -243,7 +236,6 @@ df_long <-
   )
 df_long <- df_long %>%
   mutate(Outcomes = as.factor(Outcomes))
-
 new_outcome_names <-
   c(
     "Baseline CAR Activity",
@@ -287,6 +279,9 @@ ggsave(
   height = 6,
   dpi = 300
 )
+
+# Risk of Bias
+
 df_5 <-
   study_characteristics[, c(
     "selection_bias_sequence_generation",
@@ -300,7 +295,6 @@ df_5 <-
     "reporting_bias_selective_outcome_reporting",
     "other_other_sources_of_bias"
   )]
-
 percentage_df_4 <- data.frame(lapply(df_5, calc_percentage_1))
 df_6 <-
   percentage_df_4 %>% select(where(is.double))
@@ -395,6 +389,7 @@ summary_table <- study_characteristics %>%
 summary_table <- t(summary_table)# summary statistics
 
 # Body weight plot
+
 weight_smd <- metacont(
   n.e = ex_size,
   mean.e = ex_mean,
@@ -496,7 +491,6 @@ cytokine_smd_n <- metacont(
   hakn = TRUE,
   title = "Cytokine"
 )
-
 cytokine_smd_p <- metacont(
   n.e = ex_n,
   mean.e = ex_effect,
@@ -514,7 +508,6 @@ cytokine_smd_p <- metacont(
   hakn = TRUE,
   title = "Cytokine"
 )
-
 cytokine$SMD_n <- cytokine_smd_n$TE
 cytokine$ci_low_n <- cytokine_smd_n$lower
 cytokine$ci_high_n <- cytokine_smd_n$upper
@@ -526,7 +519,6 @@ cytokine$ci_high_p <- cytokine_smd_p$upper
 cytokine$weight_p <- cytokine_smd_p$w.random
 cytokine$Cytokine <- as.factor(cytokine$Cytokine)
 cytokine[17, "study_id"] <- "Lu et al., 2019"
-
 ploty2 <-
   ggplot(data = cytokine, aes(
     y = index,
@@ -596,7 +588,6 @@ ploty2 <-
     strip.text.y.left = element_text(hjust = 1, angle = 0),
     panel.spacing = unit(0, "lines")
   )
-
 ggsave(
   filename = "output/cytokine_negative.jpg",
   plot = ploty2,
@@ -604,7 +595,6 @@ ggsave(
   height = 6,
   dpi = 300
 )
-
 cytokine_p <- cytokine[!is.na(cytokine$SMD_p),]
 cytokine_p$index <- c(1:10)
 ploty3 <-
@@ -676,7 +666,6 @@ ploty3 <-
     strip.text.y.left = element_text(hjust = 1, angle = 0),
     panel.spacing = unit(0, "lines")
   )
-
 ggsave(
   filename = "output/cytokine_positive.jpg",
   plot = ploty3,
@@ -684,7 +673,6 @@ ggsave(
   height = 6,
   dpi = 300
 )
-
 ploty4 <-
   ggarrange(ggarrange(ploty1, ploty3, ncol = 2, labels = c("A", "B")),
             ggarrange(ploty2, labels = "C"),
@@ -700,6 +688,7 @@ ggsave(
 # part (2) meta analyses--------------------------------------------------------
 
 # data wangling 
+
 tumor_burden <-
   tumor_burden  %>%
   mutate(
@@ -740,6 +729,7 @@ median_survival_1 <-
 
 
 # Tumor burden
+
 m.cont <- metacont(
   n.e = no_ex,
   mean.e = mean_ex,
@@ -811,7 +801,6 @@ forest(
   pooled.totals = FALSE
 )
 dev.off()
-
 m.cont1 <- metacont(
   n.e = no_ex,
   mean.e = mean_ex,
@@ -849,7 +838,6 @@ m2.cont1 <- metacont(
   test.subgroup = FALSE,
   title = "Tumor Burden"
 )
-
 png(
   file = "output/tumor-burden-2.png",
   width = 5200,
@@ -883,6 +871,7 @@ forest(
 dev.off()
 
 # Tumor volume
+
 m.cont2 <- metacont(
   n.e = no_ex,
   mean.e = mean_ex,
@@ -919,14 +908,12 @@ m2.cont2 <- metacont(
   print.byvar = FALSE,
   title = "Tumor Volume"
 )
-
 png(
   file = "output/tumor-volume-1.png",
   width = 5200,
   height = 3200,
   res = 300
 )
-
 forest(
   m2.cont2,
   layout = "RevMan5",
@@ -953,9 +940,7 @@ forest(
   lab.c = "Negative Control",
   pooled.totals = FALSE
 )
-
 dev.off()
-
 m.cont3 <- metacont(
   n.e = no_ex,
   mean.e = mean_ex,
@@ -973,14 +958,12 @@ m.cont3 <- metacont(
   hakn = TRUE,
   title = "Tumor Burden"
 )
-
 png(
   file = "output/tumor-volume-2.png",
   width = 5200,
   height = 2000,
   res = 300
 )
-
 forest(
   m.cont3,
   sortvar = TE,
@@ -1076,8 +1059,6 @@ median_survival_1$Lower <-
   median_survival_1$yi - 1.96 * sqrt(median_survival_1$vi2)
 median_survival_1$Upper <-
   median_survival_1$yi + 1.96 * sqrt(median_survival_1$vi2)
-
-
 median_survival_2 <-
   median_survival[, c(
     "study_id",
@@ -1090,7 +1071,6 @@ median_survival_2 <-
   )]
 median_survival_2 <-
   median_survival[!is.na(median_survival_2$Hazard_rate_PC),]
-
 median_survival_2$MSR <-
   median_survival_2$Hazard_rate_PC / median_survival_2$Hazard_rate_EX
 sum_weight <- c("size_EX", "size_PC")
@@ -1103,8 +1083,6 @@ median_survival_2$Lower <-
   median_survival_2$yi - 1.96 * sqrt(median_survival_2$vi2)
 median_survival_2$Upper <-
   median_survival_2$yi + 1.96 * sqrt(median_survival_2$vi2)
-
-
 m.gen <- metagen(
   TE = yi,
   lower = Lower,
@@ -1120,7 +1098,6 @@ m.gen <- metagen(
   hakn = TRUE,
   prediction = TRUE,
 )
-
 m.gen_1 <- metagen(
   TE = yi,
   lower = Lower,
@@ -1200,7 +1177,6 @@ IV. Random, 95% CI",
   pooled.totals = FALSE
 )
 dev.off()
-
 m.gen_3 <- metagen(
   TE = yi,
   lower = Lower,
@@ -1280,15 +1256,14 @@ find.outliers(m.gen)
 find.outliers(m.gen_1)
 
 # GOSH Plot Analysis (effect size−heterogeneity pattern)
+
 m.rma <- rma(
   yi = m.cont$TE,
   sei = m.cont$seTE,
   method = m.cont$method.tau,
   test = "knha"
 )
-
 res.gosh <- gosh(m.rma)
-
 res.gosh.diag <- gosh.diagnostics(
   res.gosh,
   km.params = list(centers = 2),
@@ -1296,20 +1271,16 @@ res.gosh.diag <- gosh.diagnostics(
                    MinPts = 50)
 )
 res.gosh.diag
-
 m.cont.new <- update(m.cont, exclude = c(1, 6, 9))
 summary(m.cont.new)
 summary(m.cont)
-
 m.rma2 <- rma(
   yi = m.cont2$TE,
   sei = m.cont2$seTE,
   method = m.cont2$method.tau,
   test = "knha"
 )
-
 res.gosh1 <- gosh(m.rma2)
-
 res.gosh.diag1 <- gosh.diagnostics(
   res.gosh1,
   km.params = list(centers = 2),
@@ -1317,19 +1288,15 @@ res.gosh.diag1 <- gosh.diagnostics(
                    MinPts = 50)
 )
 res.gosh.diag1
-
 m.cont.new1 <- update(m.cont1, exclude = c(1, 5, 8))
 summary(m.cont.new1)
-
 g.rma <- rma(
   yi = m.gen$TE,
   sei = m.gen$seTE,
   method = m.gen$method.tau,
   test = "knha"
 )
-
 g.gosh <- gosh(g.rma)
-
 g.gosh.diag <- gosh.diagnostics(
   g.gosh,
   km.params = list(centers = 2),
@@ -1337,20 +1304,16 @@ g.gosh.diag <- gosh.diagnostics(
                    MinPts = 50)
 )
 res.gosh.diag
-
 m.gen.new <- update(m.gen, exclude = c(1, 6, 9))
 summary(m.gen.new)
 summary(m.cont)
-
 m.rma2 <- rma(
   yi = m.cont2$TE,
   sei = m.cont2$seTE,
   method = m.cont2$method.tau,
   test = "knha"
 )
-
 res.gosh1 <- gosh(m.rma2)
-
 res.gosh.diag1 <- gosh.diagnostics(
   res.gosh1,
   km.params = list(centers = 2),
@@ -1358,7 +1321,5 @@ res.gosh.diag1 <- gosh.diagnostics(
                    MinPts = 50)
 )
 res.gosh.diag1
-
 m.cont.new1 <- update(m.cont2, exclude = c(1, 5, 8))
-
 summary(m.cont.new1)

@@ -530,7 +530,7 @@ ploty2 <-
     values = c(
       "IFN-y" = "#CD534CFF",
       "IL-2" = "#5CB85CFF",
-      "TNF-a" = "#EFC000FF" ,
+      "TNF" = "#EFC000FF" ,
       "IL-18" = "#868686FF",
       "IL-4" = "#8F7700FF",
       "IL-6" = "#003C67FF"
